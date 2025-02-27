@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>John Michael Liza - Portfolio</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth; /* Smooth scrolling for the entire page */
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #000; /* Black background */
+      color: #fff; /* White text */
+      line-height: 1.6;
+      margin: 0;
+      padding-top: 50px; /* Space for fixed header */
+      position: relative;
+      overflow: hidden; /* Prevent overflow of floating code */
+    }
+
+    /* Floating Code Animation */
+    .floating-code {
+      position: absolute;
+      color: rgba(255, 140, 0, 0.8); /* Orange color */
+      font-family: 'Courier New', monospace;
+      font-size: 1.5rem;
+      animation: floatCode 15s infinite linear;
+      opacity: 0.8;
+      white-space: nowrap;
+      transform-origin: bottom left;
+    }
+
+    /* Keyframes for floating effect */
+    @keyframes floatCode {
+      0% {
+        top: 100%;
+        left: -100%;
+        transform: rotate(0deg);
+      }
+      100% {
+        top: -50%;
+        left: 100%;
+        transform: rotate(720deg);
+      }
+    }
+
+    /* Header */
+    header {
+      background-color: black; /* Light orange header */
+      color: white;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      padding: 15px 0;
+      z-index: 1000;
+    }
+
+    header nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+    }
+
+    header nav ul li {
+      margin: 0 20px;
+    }
+
+    header nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: transform 0.3s ease, background-color 0.3s, color 0.3s;
+      padding: 10px 15px;
+      border-radius: 5px;
+      font-family: 'Comic Sans MS', cursive, sans-serif; /* Playful font */
+    }
+
+    /* Hover Effect - Smooth downwards movement */
+    header nav ul li a:hover {
+      background-color: #FF8C00; /* Darker orange hover */
+      color: white;
+      transform: translateY(5px); /* Moves the link down */
+    }
+
+    /* Section Styling */
+    section {
+      padding: 100px 20px;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    section h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #FF8C00; /* Darker orange for headings */
+      animation: slideUp 1s ease-out;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+
+    section p {
+      font-size: 1.2rem;
+      color: #fff; /* White text */
+      margin-bottom: 20px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    /* Keyframes for Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInText {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* About Me Section */
+    #about {
+      background: linear-gradient(135deg, #FF8C00, #FFA500); /* Gradient background */
+      text-align: center;
+      padding: 60px 20px;
+      color: #fff;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .about-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    #about h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      color: #fff;
+      animation: slideUp 1s ease-out;
+    }
+
+    .about-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .about-image {
+      max-width: 250px;
+      border-radius: 50%;
+      margin-right: 30px;
+      border: 4px solid #FF8C00;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .about-image:hover {
+      transform: scale(1.1); /* Zoom effect on hover */
+    }
+
+    .about-text {
+      max-width: 600px;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent dark background for text */
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+      animation: fadeInText 2s ease-in-out;
+    }
+
+    .about-text p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      font-family: 'Arial', sans-serif;
+      color: #fff;
+    }
+
+    /* Skills Section */
+    #skills {
+      background-color: #333; /* Dark background for skills */
+      background-image: url('code.jpg'); /* Add the background image */
+      background-size: cover; /* Cover the entire section */
+      background-position: center; /* Center the background */
+      background-attachment: fixed; /* Fix the background while scrolling */
+      color: white; /* White text */
+      padding: 50px 20px;
+    }
+
+    #skills ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 20px;
+      padding: 0;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    #skills ul li {
+      background-color: rgba(0, 0, 0, 0.8); /* Darker background for list items with some transparency */
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+      border-radius: 10px; /* Rounded corners */
+      font-size: 1.1rem; /* Increase font size slightly */
+      font-weight: bold; /* Bold text for better readability */
+      transition: transform 0.3s ease, background-color 0.3s, box-shadow 0.3s ease;
+      backdrop-filter: blur(5px); /* Slight blur effect behind the list item */
+      color: #FF8C00; /* Match text color to your brand */
+    }
+
+    #skills ul li:hover {
+      transform: translateY(-8px); /* Moves up a bit on hover */
+      background-color: #FF8C00; /* Change background color on hover */
+      color: white; /* White text when hovered */
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4); /* Darker shadow on hover for a pop effect */
+    }
+
+    #skills ul li:active {
+      transform: translateY(3px); /* Slight downward effect when clicked */
+    }
+
+    /* Projects Section */
+    #projects {
+      background-color: #222; /* Dark background for projects */
+      padding: 50px 20px;
+    }
+
+    .project-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      justify-items: center; /* Ensures projects are centered within the grid */
+    }
+
+    .project {
+      background-color: #333; /* Darker background for project */
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      border-radius: 8px; /* Add border radius for rounded corners */
+      cursor: pointer;
+    }
+
+    .project h3 {
+      font-size: 1.8rem;
+      color: #FF8C00; /* Darker orange for project titles */
+      margin-bottom: 10px;
+    }
+
+    .project a {
+      color: #FF8C00;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Contact Section */
+    #contact {
+      background-color: #222; /* Dark background for contact */
+      padding: 50px 20px;
+    }
+
+    #contact ul {
+      list-style: none;
+    }
+
+    #contact ul li {
+      font-size: 1.2rem;
+      color: #fff; /* White text */
+      margin-bottom: 10px;
+    }
+
+    #contact a {
+      color: #FF8C00;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    #contact a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #FFA500; /* Matching header color */
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Code Elements -->
+  <div class="floating-code" style="top: 10%; left: 10%;">JavaScript</div>
+  <div class="floating-code" style="top: 20%; left: 50%;">HTML</div>
+  <div class="floating-code" style="top: 30%; left: 80%;">CSS</div>
+  
+  <!-- Header -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- About Me Section -->
+  <section id="about">
+    <div class="about-container">
+      <h1>About Me</h1>
+      <div class="about-content">
+        <img src="JM.jpg" alt="John Michael" class="about-image"/>
+        <div class="about-text">
+          <p>Hello! I'm John Michael D. Liza, a passionate web developer and graphic designer. With a background in Web Development and designs, I specialize in front-end and back-end development. I strive to keep improving and learning new technologies to stay up to date with the ever-changing web development world.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <h1>Skills</h1>
+    <ul>
+      <li>HTML, CSS, JavaScript</li>
+      <li>React, Node.js</li>
+      <li>Python, Django</li>
+      <li>Adobe Animation</li>
+      <li>Version Control (Git/GitHub)</li>
+    </ul>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h1>Projects</h1>
+    <div class="project-container">
+      <div class="project">
+        <h3>Project 1: My Portfolio</h3>
+        <p>A personal portfolio website that showcases my skills and projects.</p>
+      </div>
+
+      <div class="project">
+        <h3>Project 2: Queuing Management System</h3>
+        <p>A system that manages the lining in a school by number.</p>
+      </div>
+
+      <div class="project">
+        <h3>Project 3: Exam Management System</h3>
+        <p>A system that allows students to take exams online and manage their scores.</p>
+      </div>
+
+      <div class="project">
+        <h3>Project 4: Online Store</h3>
+        <p>An e-commerce platform that allows users to browse, select, and purchase products online.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h1>Contact</h1>
+    <p>If you'd like to work together, feel free to reach out to me!</p>
+    <ul>
+      <li>Email: <a href="mailto:lizajohnmichael7@gmail.com">lizajohnmichael7@gmail.com</a></li>
+      <li>Facebook: <a href="https://www.facebook.com/share/1BirUbtAuP/" target="_blank">https://www.facebook.com/share/1BirUbtAuP/</a></li>
+      <li>GitHub: <a href="https://github.com/JohnMichael584/FINALEXAM.git" target="_blank">https://github.com/JohnMichael584/FINALEXAM.git</a></li>
+    </ul>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 John Michael Liza. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript for smooth scroll with offset -->
+  <script>
+    // Adjust scroll position for fixed header
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        
+        // Smooth scroll with offset
+        window.scrollTo({
+          top: targetElement.offsetTop - 50,  // Adjust 50px for header height
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
